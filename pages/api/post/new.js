@@ -16,6 +16,5 @@ export default async function handler(request, res) {
     } catch (error) {
       console.log("error : ", error);
     }
-
   }
 }
