@@ -7,6 +7,6 @@ export default async function Home() {
   let result = await db.collection('post').find().toArray()
 
   return (
-    <div>안녕</div>
+    <div>HOME</div>
   );
 }
