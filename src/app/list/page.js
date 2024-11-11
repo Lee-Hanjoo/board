@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { connectDB } from "../../../util/database"
-import DetailLink from "./DetailLink";
+import ListItem from "./ListItem";
 
 export default async function List(){
 
@@ -9,19 +9,7 @@ export default async function List(){
 
   return (
     <div className="list-bg">
-      {
-        result.map((item,i)=>{
-          return (
-            <div className="list-item" key={i}>
-              <Link prefetch={false} href={`detail/${item._id.toString()}`}>
-                <h4>{item.title}</h4>
-              </Link>
-              <Link href={`edit/${item._id.toString()}`}>수정</Link>
-              <p>{item.content}</p>
-            </div>
-          )
-        })
-      }
-  </div>
+      <ListItem result={JSON.stringify(result)}/>
+    </div>
   )
 }
