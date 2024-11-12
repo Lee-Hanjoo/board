@@ -15,6 +15,5 @@ import { connectDB } from "../../util/database"
 //   }
 // }
 export default function handler(request, res) {
-  console.log(request.query);
   return res.status(200).json()
 }

@@ -8,7 +8,6 @@ export default async function handler(request, res) {
   if(session) {
     request.body.author = session.user.email
   }
-  console.log(request.body);
 
   // 유저가 보낸 정보 >> request.body
   if(request.method == 'POST') {

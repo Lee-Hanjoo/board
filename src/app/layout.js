@@ -25,7 +25,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   let session = await getServerSession(authOptions)
-  console.log(session);
   
   return (
     <html lang="en">
@@ -33,10 +32,14 @@ export default async function RootLayout({ children }) {
         <div className="navbar"> 
           <Link href="/" className="logo">Board Home</Link> 
           <Link href="/list">List</Link> 
-          <Link href="/list2">List2</Link> 
-          <Link href="/write">Write</Link> 
           {
-            session ? <LogoutBtn name={session.user.name}/> : <LoginBtn />
+            session ? 
+            <>
+              <Link href="/write">Write</Link> 
+              <LogoutBtn name={session.user.name}/>
+            </>
+            :
+            <LoginBtn />
           }
         </div>  
         {children}
