@@ -45,7 +45,9 @@ export default function ListItem({result}){
                     // get하면서 데이터 전송도 가능.
                     // fetch('api/test?name=leehanjoo&age=20')
                     // URL 파라미터 문법 >> { '어쩌구': 'leehanjoo' }
-                    fetch(`/api/abc/${item._id}`)
+                    fetch(`/api/abc/${item._id}?author=${item.author}`, {
+                      method: "DELETE"
+                    })
                   }}
                 >
                   삭제

@@ -1,6 +1,15 @@
+import { getServerSession } from "next-auth"
 import { connectDB } from "../../../util/database"
+import { authOptions } from "../auth/[...nextauth]"
 
 export default async function handler(request, res) {
+
+  let session = await getServerSession(request, res, authOptions)
+  if(session) {
+    request.body.author = session.user.email
+  }
+  console.log(request.body);
+
   // 유저가 보낸 정보 >> request.body
   if(request.method == 'POST') {
     if (request.body.title == '') {
