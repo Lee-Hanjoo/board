@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import LoginBtn from "./LoginBtn";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,6 +26,9 @@ export default function RootLayout({ children }) {
         <div className="navbar"> 
           <Link href="/" className="logo">Board Home</Link> 
           <Link href="/list">List</Link> 
+          <Link href="/list2">List2</Link> 
+          <Link href="/write">Write</Link> 
+          <LoginBtn />
         </div>  
         {children}
       </body>
