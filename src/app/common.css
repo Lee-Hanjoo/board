@@ -33,11 +33,11 @@ button {
   border: none;
   border-radius: 5px;
 } 
-.navbar {
+.nav {
   background: white;
   padding: 20px;
 }
-.navbar a {
+.nav a {
   margin-right: 10px;
   text-decoration: none;
   color: black;

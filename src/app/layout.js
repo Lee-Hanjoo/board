@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import "./globals.css";
+import "./common.css";
 import Link from "next/link";
 import LoginBtn from "@/component/LoginBtn";
 import { getServerSession } from "next-auth";
@@ -29,19 +29,19 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="navbar"> 
-          <Link href="/" className="logo">Board Home</Link> 
-          <Link href="/list">List</Link> 
+        <nav className="nav"> 
+          <Link href="/" className="logo">홈</Link> 
+          <Link href="/list">목록</Link> 
           {
             session ? 
             <>
-              <Link href="/write">Write</Link> 
+              <Link href="/write">글쓰기</Link> 
               <LogoutBtn name={session.user.name}/>
             </>
             :
             <LoginBtn />
           }
-        </div>  
+        </nav>  
         {children}
       </body>
     </html>

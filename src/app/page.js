@@ -18,6 +18,8 @@ export default async function Home() {
   // await fetch('/URL', { next: {revalidate : 60} })
 
   return (
-    <div>HOME</div>
+    <div id="home">
+      HOME
+    </div>
   );
 }
