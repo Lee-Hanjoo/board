@@ -19,7 +19,30 @@ export default async function Home() {
 
   return (
     <div id="home">
-      HOME
+      <div className="container">
+        <ul className="imgBox">
+          <li>
+            <p className="title">귀여운 강아지</p>
+            <img src="/assets/welcome.jpg" />
+          </li>
+          <li>
+            <p className="title">귀여운 강아지사진 만약에 두줄이면? 이렇게해요</p>
+            <img src="/assets/welcome.jpg" />
+          </li>
+          <li>
+            <p className="title">귀여운 강아지사진 만약에 두줄이면? 이렇게해요</p>
+            <img src="/assets/welcome.jpg" />
+          </li>
+          <li>
+            <p className="title">귀여운 강아지사진 만약에 두줄이면? 이렇게해요</p>
+            <img src="/assets/welcome.jpg" />
+          </li>
+          <li>
+            <p className="title">귀여운 강아지사진 만약에 두줄이면? 이렇게해요</p>
+            <img src="/assets/welcome.jpg" />
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
