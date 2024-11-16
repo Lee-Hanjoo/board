@@ -11,7 +11,7 @@ export default function ListItem({result}){
         return (
           <li key={i}>
             <Link prefetch={false} href={`detail/${item._id.toString()}`}>
-              <h4>{item.title}</h4>
+              <h4 className="title">{item.title}</h4>
             </Link>
             <Link href={`edit/${item._id.toString()}`}>수정</Link>
             {/* form으로짜면 새로고침되는데, ajax를 사용하면 새로고침안됨. */}
@@ -52,7 +52,7 @@ export default function ListItem({result}){
               >
                 삭제
               </button>
-            <p>{item.content}</p>
+            <p className="content">{item.content}</p>
             </li>
           )
         })

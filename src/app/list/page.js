@@ -19,7 +19,9 @@ export default async function List(){
 
   return (
     <div id="list">
-      <ListItem result={JSON.stringify(result)}/>
+      <div className="container">
+        <ListItem result={JSON.stringify(result)}/>
+      </div>
     </div>
   )
 }

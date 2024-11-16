@@ -19,16 +19,18 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body>
         <nav className="nav"> 
-          <div className="menu">
-            <Link href="/" className="logo">홈</Link> 
-            <Link href="/list">목록</Link>
-            {session && <Link href="/write">글쓰기</Link>}
+          <div className="inner">
+            <div className="menu">
+              <Link href="/" className="logo">BOARD</Link> 
+              <Link href="/list">목록</Link>
+              {session && <Link href="/write">글쓰기</Link>}
+            </div>
+            {session ?
+              <LogoutBtn name={session.user.name}/>
+              :
+              <LoginBtn />
+            }
           </div>
-          {session ?
-            <LogoutBtn name={session.user.name}/>
-            :
-            <LoginBtn />
-          }
         </nav>  
         {children}
       </body>

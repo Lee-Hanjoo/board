@@ -59,6 +59,12 @@ input, select, button, textarea {
   -webkit-appearance: none;
   font-size: 14px;
 }
+button {
+  background-color: #E7E9ED;
+  border: 1px solid #E7E9ED;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
 
 input[type="checkbox"], input[type="radio"] {
   display: none;
@@ -90,8 +96,9 @@ button:focus {
 
 input {
   margin: 0;
-  padding: 0;
-  border: 0;
+  padding: 8px 20px;
+  border: 1px solid #E7E9ED;
+  border-radius: 8px;
   font-family: "Noto Sans KR", sans-serif;
 }
 
