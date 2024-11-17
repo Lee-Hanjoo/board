@@ -31,7 +31,7 @@ export default function Comment(props) {
                           <p>
                             {v.comment}
                           </p>
-                          <p>작성자 : {v.authorName}</p>
+                          <p>{v.authorName}</p>
                         </div>
                       )
                     })
