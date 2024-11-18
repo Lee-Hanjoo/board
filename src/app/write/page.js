@@ -38,9 +38,20 @@ export default async function Write() {
                 }
               }}
             />
-            <img src={src} />
+            <div className="imgWrap">
+              {
+                src ? 
+                <img src={src} />
+                :
+                <div className="noData">
+                  <p>데이터가 없습니다.</p>
+                </div>
+              }
+            </div>
           </div>
-          <button type="submit" className="writeBtn">글 작성</button>
+          <div className="btnWrap">
+            <button type="submit" className="writeBtn">글 작성</button>
+          </div>
         </form>
       </div>
     </div>

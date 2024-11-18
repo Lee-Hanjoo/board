@@ -63,7 +63,7 @@ button {
   background-color: #E7E9ED;
   border: 1px solid #E7E9ED;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -81,7 +81,7 @@ textarea {
   border: 1px solid #E7E9ED;
   font-family: "Noto Sans KR", sans-serif;
   resize: none;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 16px 20px;
   font-size: 14px;
 }
@@ -98,7 +98,7 @@ input {
   margin: 0;
   padding: 8px 20px;
   border: 1px solid #E7E9ED;
-  border-radius: 8px;
+  border-radius: 6px;
   font-family: "Noto Sans KR", sans-serif;
 }
 

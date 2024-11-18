@@ -11,9 +11,14 @@ export default function ListItem({result, session}){
         return (
           <li key={i}>
             <div className="titleWrap">
-              <Link prefetch={false} href={`detail/${item._id.toString()}`}>
-                <h4 className="title">{item.title}</h4>
-              </Link>
+              <div className="titleBox">
+                <p className="num">{i+1}</p>
+                <Link prefetch={false} href={`detail/${item._id.toString()}`}>
+                  <h4 className="title">
+                    {item.title}
+                  </h4>
+                </Link>
+              </div>
               <div className="btnWrap">
                 <Link href={`edit/${item._id.toString()}`}>수정</Link>
                 {/* form으로짜면 새로고침되는데, ajax를 사용하면 새로고침안됨. */}
@@ -56,11 +61,16 @@ export default function ListItem({result, session}){
                   </button>
                 </div>
               </div>
-              <p className="content">{item.content}</p>
+              {/* <p className="content">{item.content}</p> */}
             </li>
           )
         })
       }
+        <li className="th">
+          <p className="num">글번호</p>
+          <p className="title">제목</p>
+          <p className="setting">관리</p>
+        </li>
     </ul>
   )
 
