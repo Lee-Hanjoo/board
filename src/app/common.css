@@ -88,7 +88,27 @@
   padding: 40px;
   .listWrap {
     li {
-      border: 1px solid #8D96A4;
+      border-bottom: 1px solid #8D96A4;
+      padding: 12px;
+      &:first-of-type {
+        border-top: 1px solid #000;
+      }
+      .titleWrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btnWrap {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          button {
+            padding: 4px;
+          }
+        }
+      }
+    }
+    .content {
+      color: #8D96A4;
     }
   }
 }
