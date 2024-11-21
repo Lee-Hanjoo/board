@@ -5,6 +5,8 @@ import LoginBtn from "@/component/LoginBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import LogoutBtn from "@/component/LogoutBtn";
+import ModeBtn from "@/component/ModeBtn";
+import { cookies } from "next/headers";
 
 export const metadata = {
   title: "Board",
@@ -13,11 +15,15 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  let session = await getServerSession(authOptions)
+  let session = await getServerSession(authOptions);
+
+  let res = cookies().get('mode')
   
+  console.log(res);
+
   return (
     <html lang="en">
-      <body>
+      <body className={`${res && res.value}`}>
         <nav className="nav"> 
           <div className="inner">
             <div className="menu">
@@ -25,11 +31,13 @@ export default async function RootLayout({ children }) {
               <Link href="/list">목록</Link>
               {session && <Link href="/write">글쓰기</Link>}
             </div>
-            {session ?
+            {
+              session ?
               <LogoutBtn name={session.user.name}/>
               :
               <LoginBtn />
             }
+            <ModeBtn />
           </div>
         </nav>  
         {children}
