@@ -16,18 +16,15 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   let session = await getServerSession(authOptions);
-
   let res = cookies().get('mode')
   
-  console.log(res);
-
   return (
     <html lang="en">
       <body className={`${res && res.value}`}>
         <nav className="nav"> 
           <div className="inner">
             <div className="menu">
-              <Link href="/" className="logo">BOARD</Link> 
+              <Link href="/" className="logo">Board</Link> 
               <Link href="/list">목록</Link>
               {session && <Link href="/write">글쓰기</Link>}
             </div>
@@ -37,7 +34,7 @@ export default async function RootLayout({ children }) {
               :
               <LoginBtn />
             }
-            <ModeBtn />
+            {/* <ModeBtn /> */}
           </div>
         </nav>  
         {children}

@@ -20,44 +20,9 @@ export default async function Home() {
   return (
     <div id="home">
       <div className="container">
-        <ul className="imgBox">
-          <li>
-            <p className="title">귀여운 강아지</p>
-            <img src="/assets/img1.jpg" />
-          </li>
-          <li>
-            <p className="title">모르겠습니다</p>
-            <img src="/assets/img2.png" />
-          </li>
-          <li>
-            <p className="title">양파쿵야</p>
-            <img src="/assets/img3.png" />
-          </li>
-          <li>
-            <p className="title">모르겠어</p>
-            <img src="/assets/img4.png" />
-          </li>
-          <li>
-            <p className="title">강아지</p>
-            <img src="/assets/img5.png" />
-          </li>
-          <li>
-            <p className="title">귀여운 강아지사진</p>
-            <img src="/assets/img6.png" />
-          </li>
-          <li>
-            <p className="title">강쥐</p>
-            <img src="/assets/img7.png" />
-          </li>
-          <li>
-            <p className="title">야옹이</p>
-            <img src="/assets/img8.png" />
-          </li>
-          <li>
-            <p className="title">애옹이</p>
-            <img src="/assets/img9.png" />
-          </li>
-        </ul>
+        <div className="homeTitleWrap">
+          <h2>Board</h2>
+        </div>
       </div>
     </div>
   );
