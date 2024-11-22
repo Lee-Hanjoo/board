@@ -6,10 +6,10 @@ import { useEffect, useState } from "react"
 
 export default function ModeBtn(){
   let router = useRouter()
-  const [mode, setMode] = useState('light')
+  let modeCookie = (`; ${document.cookie}`).split(`; mode=`).pop().split(';')[0]
+  const [mode, setMode] = useState('☀️')
 
   useEffect(()=>{
-    let modeCookie = (`; ${document.cookie}`).split(`; mode=`).pop().split(';')[0]
     if (modeCookie === 'light') {
       document.cookie = `mode=dark; max-age=3600`
     } else {
@@ -17,29 +17,19 @@ export default function ModeBtn(){
     }
   },[])
   
-  // let result = cookies().get('mode')
-  // console.log(result);
-
   return(
     <button onClick={()=>{ 
-      let modeCookie = (`; ${document.cookie}`).split(`; mode=`).pop().split(';')[0]
       if (modeCookie === 'light') {
         document.cookie = `mode=dark; max-age=3600`
-        setMode('light')
+        setMode('🌙')
         router.refresh()
       } else {
         document.cookie = `mode=light; max-age=3600`
-        setMode('dark')
+        setMode('☀️')
         router.refresh()
       }
-      
     }}>
-      {
-        mode === 'light' ?
-        `☀️`
-        :
-        `🌙`
-      }
+      {mode}
     </button>
   )
 }
