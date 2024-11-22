@@ -25,8 +25,8 @@ export default async function RootLayout({ children }) {
           <div className="inner">
             <div className="menu">
               <Link href="/" className="logo">Board</Link> 
-              <Link href="/list">목록</Link>
-              {session && <Link href="/write">글쓰기</Link>}
+              {/* <Link href="/list">목록</Link> */}
+              {/* {session && <Link href="/write">글쓰기</Link>} */}
             </div>
             {
               session ?

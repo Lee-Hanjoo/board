@@ -146,3 +146,8 @@ a:link, a:visited, a:hover, a:active {
 * {
   box-sizing: border-box;
 }
+
+::selection {
+  background-color: #6E6D9B;
+  color: #CFCFDC;
+}
