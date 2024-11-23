@@ -19,8 +19,8 @@ export default async function Home() {
   // await fetch('/URL', { next: {revalidate : 60} })
 
   return (
-    <div id="home">
-      <div className="container">
+    <div id="home" className="container">
+      <div className="inner">
         <div className="homeTitleWrap">
           <Titlelink title='Board' link='list' />
         </div>

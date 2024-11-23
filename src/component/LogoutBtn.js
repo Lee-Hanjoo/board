@@ -6,10 +6,10 @@ export default function LogoutBtn(props){
 
   const {name} = props
 
+  console.log(props);
+  
+
   return(
-    <div className='logoutWrap'>
-      <p>{name} 님</p>
-      <button onClick={()=>{ signOut() }}>로그아웃</button>
-    </div>
+    <button className='logoutBtn' onClick={()=>{ signOut() }}>{name}</button>
   )
 }

@@ -25,10 +25,6 @@ export default async function RootLayout({ children }) {
         <nav className="nav"> 
           <div className="inner">
             <Link href="/" className="logo">Board</Link> 
-            {/* <div className="menu">
-              <Link href="/list">목록</Link>
-              {session && <Link href="/write">글쓰기</Link>}
-            </div> */}
             <div className="modeBtnWrap">
               <ModeBtn />
             </div>
@@ -36,7 +32,7 @@ export default async function RootLayout({ children }) {
               <SearchBtn />
               {
                 session ?
-                <LogoutBtn name={session.user.name}/>
+                <LogoutBtn name={session.user.name[0]}/>
                 :
                 <LoginBtn />
               }

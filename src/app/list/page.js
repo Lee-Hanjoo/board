@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { connectDB } from "../../../util/database"
 import ListItem from "./ListItem";
 import { authOptions } from "../../../pages/api/auth/[...nextauth]";
+import Tab from "@/component/Tab";
 
 // 600초 동안은 캐싱된 페이지를 보여줌
 // export const revalidate = 600;
@@ -22,9 +23,10 @@ export default async function List(){
   let session = await getServerSession(authOptions)
 
   return (
-    <div id="list">
-      <div className="container">
-        <ListItem result={JSON.stringify(result)} session={session}/>
+    <div id="list" className="container">
+      <Tab session={session} />
+      <div className="inner">
+        <ListItem result={JSON.stringify(result)} session={session} />
       </div>
     </div>
   )

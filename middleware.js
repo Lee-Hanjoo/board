@@ -10,11 +10,9 @@ export async function middleware(request) {
 
   if (request.nextUrl.pathname.startsWith('/write')) {
     if (!session) {
-      return NextResponse.redirect(new URL('http://localhost:3031/api/auth/signin'), request.url)
+      return NextResponse.redirect(new URL('http://localhost:8080/api/auth/signin'), request.url)
     }
   }
-
-
 
   // console.log(request.nextUrl);
   // console.log(request.cookies);

@@ -7,6 +7,6 @@ export default function Titlelink(props){
   const {title, link} = props
 
   return(
-    <Link className="title" href={`/${link}`}>{title}</Link>
+    <Link className="bgTitle" href={`/${link}`}>{title}</Link>
   )
 }
