@@ -25,18 +25,63 @@
       font-size: 32px;
       font-weight: 600;
     }
-    .menu {
+    .modeBtn {
+      width: 120px;
+      height: 64px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 8px;
+      background-color: #EDEDED;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        width: 48px;
+        height: 48px;
+        background-color: #fff;
+        border-radius: 999px;
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        z-index: 1;
+        transition: all 0.3s;
+      }
+      img {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        z-index: 2;
+      }
+      &.light {
+        &::after {
+          left: 8px;
+        }
+      }
+      &.dark {
+        &::after {
+          left: 64px;
+        }
+      }
     }
-    .logoutWrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      button {
-        margin-left: 10px;
-        padding: 8px 16px;
+    .searchBtn {
+      width: 64px;
+      height: 64px;
+      padding: 0;
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    .loginBtn {
+      width: 64px;
+      height: 64px;
+      padding: 0;
+      background-color: #000;
+      img {
+        width: 40px;
+        height: 40px;
       }
     }
   }

@@ -60,7 +60,6 @@ input, select, button, textarea {
 }
 button {
   background-color: #fff;
-  border: 1px solid #fff;
   padding: 18px;
   border-radius: 999px;
 }

@@ -7,8 +7,8 @@ export default function LoginBtn(){
   const [mode, setMode] = useState('light')
 
   return(
-    <div className='btnWrap'>
-      <button onClick={()=>{ signIn() }}>로그인</button>
-    </div>
+    <button className='loginBtn' onClick={()=>{ signIn() }}>
+      <img src='/assets/icon/icon_profile.svg' />
+    </button>
   )
 }

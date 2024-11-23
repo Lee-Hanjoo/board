@@ -7,6 +7,7 @@ import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import LogoutBtn from "@/component/LogoutBtn";
 import ModeBtn from "@/component/ModeBtn";
 import { cookies } from "next/headers";
+import SearchBtn from "@/component/SearchBtn";
 
 export const metadata = {
   title: "Board",
@@ -23,18 +24,23 @@ export default async function RootLayout({ children }) {
       <body className={`${res && res.value}`}>
         <nav className="nav"> 
           <div className="inner">
-            <div className="menu">
-              <Link href="/" className="logo">Board</Link> 
-              {/* <Link href="/list">목록</Link> */}
-              {/* {session && <Link href="/write">글쓰기</Link>} */}
+            <Link href="/" className="logo">Board</Link> 
+            {/* <div className="menu">
+              <Link href="/list">목록</Link>
+              {session && <Link href="/write">글쓰기</Link>}
+            </div> */}
+            <div className="modeBtnWrap">
+              <ModeBtn />
             </div>
-            {
-              session ?
-              <LogoutBtn name={session.user.name}/>
-              :
-              <LoginBtn />
-            }
-            {/* <ModeBtn /> */}
+            <div className="btnWrap">
+              <SearchBtn />
+              {
+                session ?
+                <LogoutBtn name={session.user.name}/>
+                :
+                <LoginBtn />
+              }
+            </div>
           </div>
         </nav>  
         {children}
