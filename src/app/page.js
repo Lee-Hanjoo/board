@@ -1,3 +1,4 @@
+import Titlelink from "@/component/Titlelink";
 import { connectDB } from "../../util/database";
 
 // 예전 Next.js에선 이렇게 revalidate 옵션 넣어서 페이지 만들던걸 ISR 이라고 불렀습니다.
@@ -21,7 +22,7 @@ export default async function Home() {
     <div id="home">
       <div className="container">
         <div className="homeTitleWrap">
-          <h2>Board</h2>
+          <Titlelink title='Board' link='list' />
         </div>
       </div>
     </div>
