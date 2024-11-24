@@ -20,13 +20,15 @@ export default async function Detail(props) {
   }
 
   return (
-    <div id="detail">
-      <div className="container">
-        <div className="top">
+    <div id="detail" className="container">
+      <div className="inner">
+        <div className="left">
           <h4 className="title">{result.title}</h4>
+          <p className="content">{result.content}</p>
         </div>
-        <p className="content">{result.content}</p>
-        <Comment parentId={parentId} author={author} />
+        <div className="commentWrap">
+          <Comment parentId={parentId} author={author} />
+        </div>
       </div>
     </div>
   )

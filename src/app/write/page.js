@@ -1,56 +1,76 @@
 'use client'
 
+import Titlelink from "@/component/Titlelink"
+import Link from "next/link"
 import { useState } from "react"
 
-export default async function Write() {
-  const [src, setSrc] = useState('')
+export default function Write() {
+
+  const [src, setSrc] = useState([])
 
   return (
-    <div id="write">
-      <div className="container">
+    <div id="write" className="container">
+      <div className="inner">
         <form action="/api/post/new" method="POST">
           {/* name을 써줘야 서버로 데이터가 전송됨. title: value 이런식으로. */}
           <div className="writeWrap">
-            <input type="text" name="title" placeholder="제목" />
-            <textarea name="content" placeholder="내용" rows={10} />
-            <input type="file" accept="image/*" 
-              onChange={async(e)=>{
-                let file = e.target.files[0]
-                let fileName = encodeURIComponent(file.name)
-                let res = await fetch(`/api/post/image?file=${fileName}`)
-                res = await res.json()
-                
-                //S3 업로드
-                const formData = new FormData()
-                Object.entries({ ...res.fields, file }).forEach(([key, value]) => {
-                  formData.append(key, value)
-                })
-                let uploadResult = await fetch(res.url, {
-                  method: 'POST',
-                  body: formData,
-                })
-                console.log(uploadResult)
-
-                if (uploadResult.ok) {
-                  setSrc(uploadResult.url + '/' + fileName)
-                } else {
-                  console.log('실패')
-                }
-              }}
-            />
+            <input type="text" name="title" className="title" placeholder="제목" />
+            <textarea name="content" className="content" placeholder="내용" rows={10} />
             <div className="imgWrap">
-              {
-                src ? 
-                <img src={src} />
-                :
-                <div className="noData">
-                  <p>데이터가 없습니다.</p>
+              <div className="imgListWrap" >
+                {/* <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} />
+                <img src={`/assets/globe.svg`} /> */}
+                {src && src.map((item,index)=>{
+                  return (
+                    <img key={index} src={item} style={{marginRight: 16}}/>
+                  )
+                })}
+              </div>
+              <label htmlFor="file">
+                <div className="fileUploadWrap">
+                  <img src="/assets/icon/icon_imgupload.svg" />
+                  <p>image upload</p>
                 </div>
-              }
+              </label>
+              <input type="file" accept="image/*"
+                name="file" id="file"
+                multiple
+                onChange={async(e)=>{
+                  let file = e.target.files[0]
+                  let fileName = encodeURIComponent(file.name)
+                  let res = await fetch(`/api/post/image?file=${fileName}`)
+                  res = await res.json()
+                  
+                  //S3 업로드
+                  const formData = new FormData()
+                  Object.entries({ ...res.fields, file }).forEach(([key, value]) => {
+                    formData.append(key, value)
+                  })
+                  let uploadResult = await fetch(res.url, {
+                    method: 'POST',
+                    body: formData,
+                  })
+
+                  if (uploadResult.ok) {
+                    setSrc([uploadResult.url + '/' + fileName, ...src])
+                  } else {
+                    console.log('실패')
+                  }
+                }}
+              />
             </div>
           </div>
           <div className="btnWrap">
-            <button type="submit" className="writeBtn">글 작성</button>
+            <Titlelink className="cancelBtn" imgSrc="/assets/icon/icon_cancle.svg" link="/list"/>
+            <button type="submit" className="writeBtn">
+              <img src="/assets/icon/icon_chk.svg" />
+            </button>
           </div>
         </form>
       </div>

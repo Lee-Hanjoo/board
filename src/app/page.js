@@ -22,7 +22,7 @@ export default async function Home() {
     <div id="home" className="container">
       <div className="inner">
         <div className="homeTitleWrap">
-          <Titlelink title='Board' link='list' />
+          <Titlelink className="bgTitle" title='Board' link='list' />
         </div>
       </div>
     </div>

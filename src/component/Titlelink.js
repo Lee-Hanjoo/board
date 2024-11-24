@@ -4,9 +4,16 @@ import Link from "next/link"
 
 export default function Titlelink(props){
 
-  const {title, link} = props
+  const {title, link, className, imgSrc} = props
 
   return(
-    <Link className="bgTitle" href={`/${link}`}>{title}</Link>
+    <Link className={className} href={`/${link}`}>
+      {
+        title ? 
+        title
+        :
+        <img src={`${imgSrc}`} />
+      }
+    </Link>
   )
 }
