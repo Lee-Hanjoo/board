@@ -10,7 +10,7 @@ export async function middleware(request) {
 
   if (request.nextUrl.pathname.startsWith('/write')) {
     if (!session) {
-      return NextResponse.redirect(new URL('http://localhost:8080/api/auth/signin'), request.url)
+      return NextResponse.redirect(new URL(`${process.env.NEXTAUTH_URL}api/auth/signin`), request.url)
     }
   }
 
