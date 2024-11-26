@@ -54,6 +54,7 @@ button, input[type="button"] {
 }
 
 input, select, button, textarea {
+  font-family: "Outfit", sans-serif;
   outline: none;
   -moz-appearance: none;
   -webkit-appearance: none;
