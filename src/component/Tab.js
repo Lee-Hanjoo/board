@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 
-export default async function Tab({session}){
+export default function Tab({session}){
 
   const [active, setActive] = useState('list')
 

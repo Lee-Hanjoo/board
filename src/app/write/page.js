@@ -1,14 +1,11 @@
 'use client'
 
 import Titlelink from "@/component/Titlelink"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-export default function Write(props) {
+export default function Write() {
 
   const [src, setSrc] = useState([])
-
-  useEffect(()=>{
-  },[src])
 
   return (
     <div id="write" className="container">

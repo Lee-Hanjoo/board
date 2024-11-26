@@ -1,6 +1,6 @@
 'use client'
 //                            error, reset 이 props로 들어옴
-export default async function Error(props) {
+export default function Error(props) {
 
     const {error, reset} = props
 
