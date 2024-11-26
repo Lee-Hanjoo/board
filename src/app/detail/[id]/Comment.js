@@ -18,32 +18,42 @@ export default function Comment(props) {
   },[dataLoad])
 
   return (
-    <div>
-        <div>
-          {
-            commentData.length > 0 ?
-              <ul>
-                <li>
-                  {
-                    commentData.map((v,i)=>{
-                      return (
-                        <div key={i}>
-                          <p>
-                            {v.comment}
-                          </p>
+    <>
+      <div className="commentListWrap">
+        <div className="commentNum">
+          <p>Comment</p>
+          <span>{commentData.length}</span>
+        </div>
+        {
+          commentData.length > 0 ?
+            <ul >
+                {
+                  commentData.map((v,i)=>{
+                    return (
+                    <li key={i}>
+                      <p className="comment">{v.comment}</p>
+                      <div className="authorWrap">
+                        <div>
+                          <img src="/assets/icon/icon_profile.svg" />
                           <p>{v.authorName}</p>
                         </div>
-                      )
-                    })
-                  }
-                </li>
-              </ul>
-              :
-              <div><p>댓글이 없습니다.</p></div>
-          }
-        </div>
-        <input type="text" onChange={(e)=>{setComment(e.target.value)}} />
+                        <span className="date">2024. 11. 26</span>
+                      </div>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+            :
+            <div className="nodata">
+              <p>댓글이 없습니다.</p>
+            </div>
+        }
+      </div>
+      <div className="commentInputWrap">
+        <input type="text" placeholder="Add Text..." onChange={(e)=>{setComment(e.target.value)}} />
         <button 
+          className="commentBtn"
           onClick={()=>{
             fetch('/api/comment/new', {
               method: 'POST',
@@ -55,7 +65,10 @@ export default function Comment(props) {
               setDataLoad(result.ok)
             })
           }}
-        >댓글전송</button>
+        >
+          <img src="/assets/icon/icon_comment.svg" />
+        </button>
       </div>
+    </>
   )
 }

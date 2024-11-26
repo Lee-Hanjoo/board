@@ -1,10 +1,10 @@
 import "./reset.css";
 import "./common.css";
 import Link from "next/link";
-import LoginBtn from "@/component/LoginBtn";
+import SignInBtn from "@/component/SignInBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
-import LogoutBtn from "@/component/LogoutBtn";
+import SignOutBtn from "@/component/SignOutBtn";
 import ModeBtn from "@/component/ModeBtn";
 import { cookies } from "next/headers";
 import SearchBtn from "@/component/SearchBtn";
@@ -32,9 +32,9 @@ export default async function RootLayout({ children }) {
               <SearchBtn />
               {
                 session ?
-                <LogoutBtn name={session.user.name[0]}/>
+                <SignOutBtn name={session.user.name[0]}/>
                 :
-                <LoginBtn />
+                <SignInBtn />
               }
             </div>
           </div>

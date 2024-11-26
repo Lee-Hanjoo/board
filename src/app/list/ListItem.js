@@ -11,11 +11,23 @@ export default function ListItem({result, session}){
         return (
           <li key={i}>
             <div className="contents">
-                <Link prefetch={false} href={`detail/${item._id.toString()}`}>
-                  <h4 className="title">{item.title}</h4>
-                  <p className="date">2024. 11. 21</p>
-                  <p className="desc">{item.content}</p>
-                </Link>
+              <Link prefetch={false} href={`detail/${item._id.toString()}`}>
+                <h4 className="title">{item.title}</h4>
+                <p className="date">2024. 11. 21</p>
+                <p className="desc">{item.content}</p>
+                <div className="listImgWrap">
+                  <p>(+4)</p>
+                  <ul>
+                    <li>
+                      <img src="/assets/01.jpg" />
+                    </li>
+                  </ul>
+                </div>
+              </Link>
+              <div className="profileWrap">
+                <img src="/assets/icon/icon_profile.svg" />
+                <p>Lee-Hanjoo</p>
+              </div>
               <div className="btnWrap">
                 <Link href={`edit/${item._id.toString()}`}>
                   <img src="/assets/icon/icon_edit.svg"/>
@@ -60,7 +72,7 @@ export default function ListItem({result, session}){
                   </button>
               </div>
             </div>
-            </li>
+          </li>
           )
         })
       }
