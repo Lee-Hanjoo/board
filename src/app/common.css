@@ -74,7 +74,7 @@
       }
     }
     .btnWrap {
-      > button {
+      > button:not(.searchBtn) {
         position: relative;
         &::after {
           content: 'Sign In';
@@ -401,6 +401,7 @@
           }
           .content {
             width: 100%;
+            height: calc(100% - 400px);
             padding: 0 32px 7px;
             border-radius: 0 0;
             font-size: 20px;
@@ -477,6 +478,9 @@
 
 #detail {
   &.container {
+    &::after {
+      content: 'Detail';
+    }
     .inner {
       width: 100%;
       height: 832px;
@@ -641,6 +645,75 @@
   }
 }
 
+#edit {
+  &.container {
+    &::after {
+      content: 'Edit';
+    }
+    .inner {
+      width: 100%;
+      height: 745px;
+      padding: 20px;
+      background: url('/assets/writeBox.svg') no-repeat center;
+      form {
+        height: 100%;
+        .writeWrap {
+          height: calc(100% - 72px);
+          padding-bottom: 20px;
+          background-color: #fff;
+          border-radius: 40px;
+          .title {
+            width: 100%;
+            padding: 32px 32px 16px;
+            border-radius: 40px 40px 0 0;
+            font-size: 32px;
+            font-weight: 500;
+          }
+          .content {
+            width: 100%;
+            height: calc(100% - 296px);
+            padding: 0 32px 7px;
+            border-radius: 0 0;
+            font-size: 20px;
+            font-weight: 500;
+          }
+          .imgWrap {
+            padding: 0 20px;
+            .imgListWrap {
+              img {
+                width: 200px;
+                height: 200px;
+                border-radius: 30px;
+              }
+            }
+          }
+        }
+        .btnWrap {
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          .writeBtn {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            img {
+              width: 32px;
+              height: 32px;
+            }
+          }
+          .cancelBtn {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 999px;
+            padding: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
 /* dark mode */
 .dark {
   .nav {
@@ -648,6 +721,14 @@
       .logo {
         color: #fff;
         background-color: rgba(7,7,32,1);
+      }    
+      .btnWrap {
+        > button:not(.searchBtn) {
+          position: relative;
+          &::after {
+            color: #fff;
+          }
+        }
       }
     }
   }

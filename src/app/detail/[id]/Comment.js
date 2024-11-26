@@ -15,7 +15,7 @@ export default function Comment(props) {
     .then((result)=>{
       setCommentData(result)
     })
-  },[dataLoad])
+  },[dataLoad, comment])
 
   return (
     <>
@@ -34,7 +34,7 @@ export default function Comment(props) {
                       <p className="comment">{v.comment}</p>
                       <div className="authorWrap">
                         <div>
-                          <img src="/assets/icon/icon_profile.svg" />
+                          <img src="/assets/icon/icon_profile_black.svg" />
                           <p>{v.authorName}</p>
                         </div>
                         <span className="date">2024. 11. 26</span>
@@ -51,7 +51,7 @@ export default function Comment(props) {
         }
       </div>
       <div className="commentInputWrap">
-        <input type="text" placeholder="Add Text..." onChange={(e)=>{setComment(e.target.value)}} />
+        <input type="text" value={comment} placeholder="Add Text..." onChange={(e)=>{setComment(e.target.value)}} />
         <button 
           className="commentBtn"
           onClick={()=>{
@@ -63,6 +63,7 @@ export default function Comment(props) {
             // 새로운 댓글 업데이트. state에 넣어서 db에서 다시 불러오기. html 실시간 생성 수정 삭제가 client-side rendering의 장점임
             .then((result)=>{
               setDataLoad(result.ok)
+              if (result.ok) setComment('');
             })
           }}
         >

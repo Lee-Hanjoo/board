@@ -1,12 +1,14 @@
 'use client'
 
 import Titlelink from "@/component/Titlelink"
-import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function Write() {
+export default function Write(props) {
 
   const [src, setSrc] = useState([])
+
+  useEffect(()=>{
+  },[src])
 
   return (
     <div id="write" className="container">
@@ -14,18 +16,10 @@ export default function Write() {
         <form action="/api/post/new" method="POST">
           {/* name을 써줘야 서버로 데이터가 전송됨. title: value 이런식으로. */}
           <div className="writeWrap">
-            <input type="text" name="title" className="title" placeholder="제목" />
-            <textarea name="content" className="content" placeholder="내용" rows={10} />
+            <input type="text" name="title" className="title" placeholder="Title" />
+            <textarea name="content" className="content" placeholder="Add Text..." rows={10} />
             <div className="imgWrap">
               <div className="imgListWrap" >
-                {/* <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} />
-                <img src={`/assets/globe.svg`} /> */}
                 {src && src.map((item,index)=>{
                   return (
                     <img key={index} src={item} style={{marginRight: 16}}/>

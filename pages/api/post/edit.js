@@ -2,6 +2,13 @@ import { ObjectId } from "mongodb"
 import { connectDB } from "../../../util/database"
 
 export default async function handler(request, res) {
+  
+  if (request.body.title == '') {
+    return res.status(404).json('제목을 입력해주세요.')
+  } else if(request.body.content == '') {
+    return res.status(404).json('내용을 입력해주세요.')
+  }
+
   if(request.method == 'POST') {
     let formatRequest = {title : request.body.title, content : request.body.content}
     const db = (await connectDB).db('board')

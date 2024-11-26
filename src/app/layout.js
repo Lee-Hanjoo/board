@@ -14,11 +14,11 @@ export const metadata = {
   description: "leehanjoo board",
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({ children, parentFunc }) {
 
   let session = await getServerSession(authOptions);
   let res = cookies().get('mode')
-  
+
   return (
     <html lang="en">
       <body className={`${res && res.value}`}>

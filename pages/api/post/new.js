@@ -6,7 +6,11 @@ export default async function handler(request, res) {
 
   let session = await getServerSession(request, res, authOptions)
   if(session) {
-    request.body.author = session.user.email
+    if (session.user.name) {
+      request.body.author = session.user.name
+    } else {
+      request.body.author = session.user.email
+    }
   }
 
   // 유저가 보낸 정보 >> request.body
