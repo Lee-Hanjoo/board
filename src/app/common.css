@@ -490,7 +490,7 @@
       justify-content: space-between;
       background: url('/assets/detailBox2.svg') no-repeat center;
       .left {
-        width: calc(100% - 390px);
+        width: calc(100% - 34%);
         height: calc(100% - 80px);
         background-color: #fff;
         border-radius: 40px;
@@ -528,7 +528,7 @@
         }
       }
       .commentWrap {
-        width: calc(100% - 870px);
+        width: calc((100% - 66%) - 20px);
         height: calc(100% - 80px);
         padding: 32px 32px 28px;
         background-color: #fff;
@@ -710,6 +710,19 @@
           }
         }
       }
+    }
+  }
+}
+
+#loading {
+  &.container {
+    height: 100vh;
+    &::after {
+      font-size: 300px;
+      content: 'Loading';
+    }
+    .inner {
+      height: 100%;
     }
   }
 }

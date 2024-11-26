@@ -1,11 +1,10 @@
 'use client'
+
 import Link from "next/link";
 // 클라이언트는 유저 브라우저에 다 노출이 됨. 검색노출에 좋지않음.
 
 //                   props 문법 편하게 쓰려면 destructuring 문법.
 export default async function ListItem({result, session}){
-
-  console.log(result);
   
   return (
     <ul className="listWrap">
@@ -18,15 +17,17 @@ export default async function ListItem({result, session}){
                 <h4 className="title">{item.title}</h4>
                 <p className="date">2024. 11. 21</p>
                 <p className="desc">{item.content}</p>
+                {
+                  item.file && 
                   <div className="listImgWrap">
                     <p>(+4)</p>
                     <ul>
-
                       <li>
                         <img src={`https://s3.ap-northeast-2.amazonaws.com/leehanjooboard/${item.file}`} />
                       </li>
                     </ul>
                   </div>
+                }
               </Link>
               <div className="profileWrap">
                 <img src="/assets/icon/icon_profile.svg" />

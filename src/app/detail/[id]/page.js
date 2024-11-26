@@ -16,6 +16,8 @@ export default async function Detail(props) {
   let session = await getServerSession(authOptions)
 
 
+  console.log(result);
+
   if(!result) {
     return notFound();
   }
@@ -27,13 +29,15 @@ export default async function Detail(props) {
           <h4 className="title">{result.title}</h4>
           <p className="date">2024. 11. 26</p>
           <p className="content">{result.content}</p>
-          <div className="detailImgWrap">
-            <ul>
-              <li>
-                <img src="/assets/02.jpg" />
-              </li>
-            </ul>
-          </div>
+          {result.file &&
+            <div className="detailImgWrap">
+              <ul>
+                <li>
+                  <img src={`https://s3.ap-northeast-2.amazonaws.com/leehanjooboard/${result.file}`} />
+                </li>
+              </ul>
+            </div>
+          }
         </div>
         <div className="commentWrap">
           <Comment parentId={parentId} author={author} />

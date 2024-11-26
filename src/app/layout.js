@@ -24,7 +24,7 @@ export default async function RootLayout({ children, parentFunc }) {
       <body className={`${res && res.value}`}>
         <nav className="nav"> 
           <div className="inner">
-            <Link href="/" className="logo">Board</Link> 
+            <Link href="/list" className="logo">Board</Link> 
             <div className="modeBtnWrap">
               <ModeBtn />
             </div>

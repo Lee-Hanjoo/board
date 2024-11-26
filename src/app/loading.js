@@ -1,6 +1,9 @@
+export default async function Loading() {
 
-export default async function Loading(props) {
-    return (
-        <h4>로딩중...</h4>
-    )
+  return (
+    <div id="loading" className="container">
+      <div className="inner">
+      </div>
+    </div>
+  );
 }
