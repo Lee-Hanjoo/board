@@ -29,7 +29,7 @@ export default async function RootLayout({ children, parentFunc }) {
               <ModeBtn />
             </div>
             <div className="btnWrap">
-              <SearchBtn />
+              {/* <SearchBtn /> */}
               {
                 session ?
                 <SignOutBtn name={session.user.name[0]}/>

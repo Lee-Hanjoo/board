@@ -124,9 +124,11 @@
 
 .container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0 auto;
-  padding: 184px 0 120px;
+  padding-top: 184px;
   background: rgb(225,226,229);
   background: linear-gradient(315deg, rgba(225,226,229,1) 15%, rgba(207,207,220,1) 100%);
   position: relative;
@@ -161,7 +163,7 @@
   .inner {
     width: 100%;
     max-width: 1280px;
-    height: calc(100% - 48px);
+    height: 105vh;
     margin: 0 auto;
   }
   .title {
@@ -174,6 +176,13 @@
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+  .noEvent {
+    background-color: #EDEDED !important;
+    cursor: not-allowed;
+    img {
+      opacity: 0.3;
+    }
+  }
 }
 
 .tabWrap {
@@ -220,7 +229,6 @@
 
 #home {
   &.container {
-    height: 100vh;
     .homeTitleWrap {
       height: 100%;
       display: flex;
@@ -236,6 +244,8 @@
         opacity: 0;
         position: absolute;
         z-index: 2;
+        background-clip: text;
+        -webkit-background-clip: text;
         &:hover {
           cursor: url(/assets/icon/icon_gotolist.svg) 5 5, auto;
         }
@@ -386,6 +396,7 @@
       content: 'Write';
     }
     .inner {
+      height: 100% !important;
       form {
         position: relative;
         .writeWrap {
@@ -718,10 +729,21 @@
 
 #loading {
   &.container {
-    height: 100vh;
     &::after {
       font-size: 300px;
       content: 'Loading';
+    }
+    .inner {
+      height: 100%;
+    }
+  }
+}
+
+#notFound {
+  &.container {
+    &::after {
+      font-size: 300px;
+      content: '404 ERROR';
     }
     .inner {
       height: 100%;
@@ -770,9 +792,6 @@
         .bgTitle {
           background: rgb(52,51,94);
           background: linear-gradient(315deg, rgba(52,51,94,1) 15%, rgba(255,255,255,1) 100%);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
         }
       }
     }
@@ -784,7 +803,6 @@
           .contents {
             &:hover {
               box-shadow: 2px 2px 12px rgba(255,255,255,0.3);
-              transition: all 0.3s;
             }
           }
         }

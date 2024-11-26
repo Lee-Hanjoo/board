@@ -1,7 +1,10 @@
-export default function NotFound(){
+export default function NotFound() {
+
     return (
-        <div>
-            <p>없는 페이지 입니다.</p>
+      <div id="notFound" className="container">
+        <div className="inner">
         </div>
-    )
-}
+      </div>
+    );
+  }
+  

@@ -5,7 +5,7 @@ import { useState } from "react"
 
 export default function Write() {
 
-  const [src, setSrc] = useState([])
+  const [src, setSrc] = useState('')
 
   return (
     <div id="write" className="container">
@@ -17,18 +17,24 @@ export default function Write() {
             <textarea name="content" className="content" placeholder="Add Text..." rows={10} />
             <div className="imgWrap">
               <div className="imgListWrap" >
-                {src && src.map((item,index)=>{
+                {/* {src && src.map((item,index)=>{
                   return (
                     <img key={index} src={item} style={{marginRight: 16}}/>
                   )
-                })}
+                })} */}
+                {
+                  src &&
+                  <img src={src} style={{marginRight: 16}}/>
+                }
               </div>
-              <label htmlFor="file">
-                <div className="fileUploadWrap">
-                  <img src="/assets/icon/icon_imgupload.svg" />
-                  <p>image upload</p>
-                </div>
-              </label>
+              {src === '' && 
+                <label htmlFor="file">
+                  <div className="fileUploadWrap">
+                    <img src="/assets/icon/icon_imgupload.svg" />
+                    <p>image upload</p>
+                  </div>
+                </label>
+              }
               <input type="file" accept="image/*"
                 name="file" id="file"
                 multiple
@@ -49,7 +55,8 @@ export default function Write() {
                   })
 
                   if (uploadResult.ok) {
-                    setSrc([uploadResult.url + '/' + fileName, ...src])
+                    // setSrc([uploadResult.url + '/' + fileName, ...src])
+                    setSrc(uploadResult.url + '/' + fileName)
                   } else {
                     console.log('실패')
                   }
