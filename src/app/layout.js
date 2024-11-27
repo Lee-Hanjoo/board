@@ -14,7 +14,7 @@ export const metadata = {
   description: "leehanjoo board",
 };
 
-export default async function RootLayout({ children, parentFunc }) {
+export default async function RootLayout({ children }) {
 
   let session = await getServerSession(authOptions);
   let res = cookies().get('mode')
@@ -32,7 +32,7 @@ export default async function RootLayout({ children, parentFunc }) {
               {/* <SearchBtn /> */}
               {
                 session ?
-                <SignOutBtn name={session.user.name[0]}/>
+                <SignOutBtn name={session.user.name[0]} />
                 :
                 <SignInBtn />
               }

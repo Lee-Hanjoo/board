@@ -16,17 +16,17 @@ export default function Signin() {
             password=e.target.password.value;
 
         let result = await signIn('credentials',{
-                        redirect: false, email, password
-                    });
+            redirect: false, email, password
+        });
 
         if(result.ok){
-        console.log('Success');
-        router.push('/list')
-        }else{
-        console.log('Error',result.error);
+            console.log('Success');
+            router.push('/')
+            router.refresh()
+        } else {
+            console.log('Error',result.error);
         }
     }
-
 
     return (
       <div className="sign in container">
