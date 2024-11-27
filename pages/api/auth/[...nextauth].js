@@ -7,19 +7,11 @@ import bcrypt from 'bcrypt';
 
 export const authOptions = {
   providers: [
-    // 로그인 방식 하나를 Provider라고 함.
     GithubProvider({
       clientId: process.env.AUTH_GITHUB_ID,
       clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
     CredentialsProvider({
-      //1. 로그인페이지 폼 자동생성해주는 코드 
-      name: "credentials",
-        credentials: {
-          email: { label: "email", type: "text" },
-          password: { label: "password", type: "password" },
-      },
-
       //2. 로그인요청시 실행되는코드
       //직접 DB에서 아이디,비번 비교하고 
       //아이디,비번 맞으면 return 결과, 틀리면 return null 해야함
@@ -27,12 +19,12 @@ export const authOptions = {
         let db = (await connectDB).db('board');
         let user = await db.collection('user_cred').findOne({email : credentials.email})
         if (!user) {
-          console.log('해당 이메일은 없음');
+          console.log('해당 이메일로 등록된 사용자가 없습니다.');
           return null
         }
         const pwcheck = await bcrypt.compare(credentials.password, user.password);
         if (!pwcheck) {
-          console.log('비번틀림');
+          console.log('비밀번호가 맞지 않습니다.');
           return null
         }
         return user
@@ -60,6 +52,11 @@ export const authOptions = {
       session.user = token.user;  
       return session;
     },
+    signIn: async ({ user }) => {
+      console.log(user);
+
+      return true
+    }
   },
   secret : process.env.NEXTAUTH_SECRET,
   adapter : MongoDBAdapter(connectDB),
@@ -68,4 +65,5 @@ export const authOptions = {
     signIn: "/signin",
   },
 };
+
 export default NextAuth(authOptions); 

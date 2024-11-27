@@ -6,7 +6,7 @@ export default function SignInBtn(){
 
   return(
     <button className='signInBtn' onClick={()=>{ signIn() }}>
-      <img src='/assets/icon/icon_profile.svg' />
+        <img src='/assets/icon/icon_profile.svg' />
     </button>
   )
 }
