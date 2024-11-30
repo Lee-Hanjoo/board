@@ -79,10 +79,10 @@ export default function ListItem({result, session}){
                   </>
                   :
                   <>
-                    <Link href={`/list`} onClick={()=>{signIn()}}>
+                    <Link href={`/list`} onClick={signIn}>
                       <img src="/assets/icon/icon_edit.svg"/>
                     </Link>
-                    <button onClick={()=>{signIn()}}>
+                    <button onClick={signIn}>
                       <img src="/assets/icon/icon_delete.svg" />
                     </button>
                   </>

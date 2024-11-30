@@ -9,7 +9,7 @@ export default function Titlelink(props){
   return(
     <Link 
       className={className} 
-      href={title ? `/${link}` : `http://localhost:8080/${link}`}
+      href={title ? `/${link}` : `${process.env.NEXTAUTH_URL}/${link}`}
     >
       {
         title ? 
