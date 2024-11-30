@@ -17,11 +17,12 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   let session = await getServerSession(authOptions);
-  let res = cookies().get('mode')
+  // let res = cookies().get('mode')
 
   return (
     <html lang="en">
-      <body className={`${res && res.value}`}>
+      {/* <body className={`${res && res.value}`}> */}
+      <body>
         <nav className="nav"> 
           <div className="inner">
             <Link href="/" className="logo">Board</Link> 
