@@ -232,6 +232,7 @@
 
 #home {
   &.container {
+    overflow-y: hidden;
     .homeTitleWrap {
       height: 100%;
       display: flex;

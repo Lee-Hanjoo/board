@@ -21,8 +21,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      {/* <body className={`${res && res.value}`}> */}
-      <body>
+      <body className={`${res && res.value}`}>
         <nav className="nav"> 
           <div className="inner">
             <Link href="/" className="logo">Board</Link> 
