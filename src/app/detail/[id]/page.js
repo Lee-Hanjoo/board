@@ -12,7 +12,7 @@ export default async function Detail(props) {
   const author = result.author
 
   if(!result) {
-    return notFound();
+    return notFound()
   }
 
   return (
