@@ -17,11 +17,15 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   let session = await getServerSession(authOptions);
-  let res = cookies().get('mode')
+  let cookie = cookies().get('mode')
 
   return (
     <html lang="en">
-      <body className={`${res && res.value}`}>
+      <body className={
+        cookie != undefined && cookie.value == 'dark' 
+          ? 'dark'
+          : ''
+      }>
         <nav className="nav"> 
           <div className="inner">
             <Link href="/" className="logo">Board</Link> 

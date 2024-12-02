@@ -2,9 +2,7 @@ import { ObjectId } from "mongodb";
 import { connectDB } from "../../../../util/database";
 import Comment from "./Comment";
 import { notFound } from "next/navigation";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../../../pages/api/auth/[...nextauth]";
-import Titlelink from "@/component/Titlelink";
+import LinkBtn from "@/component/LinkBtn";
 
 export default async function Detail(props) {
 
@@ -12,11 +10,6 @@ export default async function Detail(props) {
   let result = await db.collection('post').findOne({_id: new ObjectId(`${props.params.id}`)})
   const parentId = result._id.toString()
   const author = result.author
-
-  let session = await getServerSession(authOptions)
-
-
-  console.log(result);
 
   if(!result) {
     return notFound();
@@ -43,7 +36,7 @@ export default async function Detail(props) {
           <Comment parentId={parentId} author={author} />
         </div>
         <div className="btnWrap">
-          <Titlelink className="listBtn" imgSrc="/assets/icon/icon_list.svg" link="/list"/>
+          <LinkBtn link="list" className="listBtn" />
         </div>
       </div>
     </div>

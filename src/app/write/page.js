@@ -1,9 +1,12 @@
 'use client'
 
 import Titlelink from "@/component/Titlelink"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function Write() {
+
+  const router = useRouter();
 
   const [src, setSrc] = useState('')
 
@@ -65,7 +68,9 @@ export default function Write() {
             </div>
           </div>
           <div className="btnWrap">
-            <Titlelink className="cancelBtn" imgSrc="/assets/icon/icon_cancle.svg" link="/list"/>
+            <button type="button" className="cancleBtn" onClick={()=>{router.push('/list')}}>
+              <img src="/assets/icon/icon_cancle.svg" />
+            </button>
             <button type="submit" className="writeBtn">
               <img src="/assets/icon/icon_chk.svg" />
             </button>
