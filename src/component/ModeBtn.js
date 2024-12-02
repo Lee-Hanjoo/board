@@ -18,7 +18,7 @@ export default function ModeBtn({ initialMode }) {
     const newMode = mode === "dark" ? "light" : "dark";
     document.cookie = `mode=${newMode}; max-age=3600`;
     setMode(newMode);
-    router.refresh()
+    // router.refresh()
   };
 
   return (

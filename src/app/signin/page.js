@@ -19,13 +19,13 @@ export default function Signin() {
             redirect: false, email, password
         });
 
-        if(result.ok){
-            console.log('Success');
-            router.push('/')
-            router.refresh()
-        } else {
-            console.log('Error',result.error);
-        }
+        // if(result.ok){
+        //     console.log('Success');
+        //     router.push('/')
+        //     router.refresh()
+        // } else {
+        //     console.log('Error',result.error);
+        // }
     }
 
     return (

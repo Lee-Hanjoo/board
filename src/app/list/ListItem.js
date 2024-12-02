@@ -51,14 +51,15 @@ export default function ListItem({result, session}){
                           const res = await fetch(`/api/abc/${item._id}?author=${item.author}`, {
                             method: "DELETE",
                           });
-                          if (res.ok) {
-                            router.refresh(); // 페이지 새로고침
-                          } else {
-                            const error = await res.json();
-                            console.error("삭제 실패:", error);
-                            alert("삭제 실패! " + error.message);
-                          }
-                        } catch (error) {
+                          // if (res.ok) {
+                          //   router.refresh(); // 페이지 새로고침
+                          // } else {
+                          //   const error = await res.json();
+                          //   console.error("삭제 실패:", error);
+                          //   alert("삭제 실패! " + error.message);
+                          // }
+                        } 
+                        catch (error) {
                           console.error("요청 오류:", error);
                           alert("요청 중 오류가 발생했습니다.");
                         }
