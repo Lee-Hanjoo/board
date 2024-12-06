@@ -20,7 +20,7 @@ export default function Tab({session}){
         session &&
         <Link 
           className={`title ${active === 'write' ? 'active' : ''}`} 
-          href='/write' 
+          href='/write'
           onClick={()=>{setActive('write')}}
         >
           Write

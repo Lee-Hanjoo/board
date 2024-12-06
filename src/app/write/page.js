@@ -26,11 +26,11 @@ export default function Write() {
                   )
                 })} */}
                 {
-                  src &&
+                  src && src === '' &&
                   <img src={src} style={{marginRight: 16}}/>
                 }
               </div>
-              {src === '' && 
+              {src && src === '' && 
                 <label htmlFor="file">
                   <div className="fileUploadWrap">
                     <img src="/assets/icon/icon_imgupload.svg" />
