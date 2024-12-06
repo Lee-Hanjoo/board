@@ -22,7 +22,7 @@ export default async function Edit(props){
             </div>
           </div>
           <div className="btnWrap">
-            <Titlelink className="cancelBtn" imgSrc="/assets/icon/icon_cancle.svg" link="/list"/>
+            <Titlelink className="cancelBtn" imgSrc="/assets/icon/icon_cancle.svg" link="list"/>
             <button type="submit" className="writeBtn">
               <img src="/assets/icon/icon_chk.svg" />
             </button>
